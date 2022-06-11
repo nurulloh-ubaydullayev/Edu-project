@@ -2,16 +2,16 @@ const { Router } = require("express");
 
 const router = new Router();
 
-// const Auth = require("./Auth/Auth");
-// const Application = require("./Applications/applications");
+const Users = require("./Users/users");
+const Auth = require("./Auth/auth");
+const Todos = require("./Todos/todos");
 
-router;
-//   .post("/login", Auth.LOGIN)
-//   .get("/verify", Auth.VERIFICATION, (_, res) => {
-//     res.status(200).send({ message: "OK" });
-//   })
-//   .get("/application/:page", Auth.VERIFICATION, Application.GET_ALL)
-//   .post("/application", Application.CREATE)
-//   .put("/application", Auth.VERIFICATION, Application.ADD_DESCRIPTION);
+router
+  .post("/signup", Users.SIGNUP)
+  .get("/login", Auth.LOGIN)
+  .get("/todos", Auth.VERIFICATION, Todos.READ)
+  .post("/todos", Auth.VERIFICATION, Todos.CREATE)
+  .put("/todos/:id", Auth.VERIFICATION, Todos.UPDATE)
+  .delete("/todos/:id", Auth.VERIFICATION, Todos.DELETE);
 
 module.exports = router;
