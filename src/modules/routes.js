@@ -8,7 +8,7 @@ const Todos = require("./Todos/todos");
 
 router
   .post("/signup", Users.SIGNUP)
-  .get("/login", Auth.LOGIN)
+  .post("/login", Auth.LOGIN)
   .get("/todos", Auth.VERIFICATION, Todos.READ)
   .post("/todos", Auth.VERIFICATION, Todos.CREATE)
   .put("/todos/:id", Auth.VERIFICATION, Todos.UPDATE)
